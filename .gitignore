@@ -2,3 +2,9 @@ __pycache_/
 db.sqlite3 
 .vscode 
 .vscode/ 
+__pycache__/ 
+__pycache__ 
+backend/__pycache__/ 
+/__pycache__ 
+settings.cpython-310.pyc 
+urls.cpython-310.pyc 
