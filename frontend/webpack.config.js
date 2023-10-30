@@ -2,12 +2,12 @@ const path = require('path');
 
 module.exports = {
     mode: "development",
-    entry: path.resolve(__dirname, 'backend/frontend/src/index.js'),
+    entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         // options related to how webpack emits results
 
         // where compiled files go
-        path: path.resolve(__dirname, "backend/frontend/static/frontend/public/"),
+        path: path.resolve(__dirname, "static/frontend/public/"),
 
         // 127.0.0.1/static/frontend/public/ where files are served from
         publicPath: "/static/frontend/public/",
