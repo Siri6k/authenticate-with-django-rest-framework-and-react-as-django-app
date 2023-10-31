@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axiosInstance from "../axiosApi";
 
 
 function Login () {
@@ -12,9 +13,23 @@ function Login () {
         setPassword(event.target.value);
     }
 
-   const handleSubmit = (event) => {
-        alert('A username and password was submitted: ' + username + " " + password);
+   const handleSubmit = async (event) => {
         event.preventDefault();
+        try {
+            const { data, status } = await axiosInstance.post('/token/', {
+                username: username,
+                password: password
+            });
+            if (status === 200){
+                axiosInstance.defaults.headers['Authorization'] = "JWT " + data.access;
+                localStorage.setItem('access_token', data.access);
+                localStorage.setItem('refresh_token', data.refresh);
+            }
+            console.log(data)
+            return data;
+        } catch (error) {
+            throw error;
+        }
     }
     return (
             <div>
