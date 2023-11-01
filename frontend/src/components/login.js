@@ -25,7 +25,6 @@ function Login () {
                 localStorage.setItem('access_token', data.access);
                 localStorage.setItem('refresh_token', data.refresh);
             }
-            console.log(data)
             return data;
         } catch (error) {
             throw error;

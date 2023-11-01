@@ -12,6 +12,7 @@ class ObtainTokenPairWithColorView(TokenObtainPairView):
 
 class CustomUserCreate(APIView):
     permission_classes = (permissions.AllowAny,)  # permettre a tous de creer un compte
+    authentication_classes = ()  # autoriser les autres entité a acceder au view
 
     def post(self, request, format="json"):
         serializer = CustomUserSerializer(data=request.data)
