@@ -5,6 +5,7 @@ function Signup () {
     const [username , setUsername] = useState("")
     const [password , setPassword] = useState("")
     const [email, setEmail] = useState("")
+    let [password2 , setPassword2] = useState("")
 
     const [errors, setError] = useState({})
 
@@ -16,6 +17,15 @@ function Signup () {
     }
     const handlePassword = (event) => {
         setPassword(event.target.value);
+    }
+    const handlePassword2 = (event) => {
+        setPassword2(event.target.value);
+        setError({"password2":"OK"})
+        if(password2 == password){
+            setError({})
+        }else{
+            setError({"password2":"Confirm password must be the same as the password"})
+        }
     }
 
    const handleSubmit = async (event) => {
@@ -51,6 +61,11 @@ function Signup () {
                     Password:
                     <input name="password" type="password" value={password} onChange={handlePassword}/>
                     { errors.password ? errors.password : null}
+                </label>
+                <label>
+                    Confirm Password:
+                    <input name="password2" type="password" value={password2} onChange={handlePassword2}/>
+                    { errors.password2 ? errors.password2 : null}
                 </label>
                 <input type="submit" value="Submit"/>
             </form>
