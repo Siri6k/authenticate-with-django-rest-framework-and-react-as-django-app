@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "../login";
-import Hello from "../hello";
-import Signup from "../signup";
+
+import Logout from "../logout";
 
 function NavBar (){
 
@@ -12,6 +11,7 @@ function NavBar (){
             <Link className={"nav-link"} to={"/login/"}>Login</Link>
             <Link className={"nav-link"} to={"/signup/"}>Signup</Link>
             <Link className={"nav-link"} to={"/hello/"}>Hello</Link>
+            <Logout />
         </nav>
     );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axiosInstance from "../axiosApi";
-
+import { Navigate } from "react-router-dom";
 
 function Login () {
     const [username , setUsername] = useState("")
@@ -24,10 +24,14 @@ function Login () {
                 axiosInstance.defaults.headers['Authorization'] = "JWT " + data.access;
                 localStorage.setItem('access_token', data.access);
                 localStorage.setItem('refresh_token', data.refresh);
+                
             }
+            console.log(data)
+            window.location.href = '/hello/';
             return data;
         } catch (error) {
-            throw error;
+            console.log(error.response.data);
+            throw error.response.data;
         }
     }
     return (

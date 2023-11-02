@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    #drf 
+    # drf
     "rest_framework",
-    "rest_framework_simplejwt.token_blacklist",
+    "rest_framework_simplejwt.token_blacklist",  # blackliste refresh token
     "corsheaders",
     # App
     "authentication",
@@ -70,8 +70,8 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=14),
-    "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": False,
+    "ROTATE_REFRESH_TOKENS": True,  # always receive new refresh token when ask for access token
+    "BLACKLIST_AFTER_ROTATION": True,  # blaclist old refresh token after rotation
     "ALGORITHM": "HS256",
     "SIGNING_KEY": SECRET_KEY,
     "VERIFYING_KEY": None,
